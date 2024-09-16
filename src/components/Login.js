@@ -33,17 +33,26 @@ function Login() {
         }
       );
       const result = response.data;
-      console.log(result);
+      const message = result.message;
+      const status = result.status;
+      
 
       if (result && result.token) {
         localStorage.setItem("token", result.token); // Save token
         window.location.href = "/Home"; // Redirect to home
       } else {
-        setError("Invalid login credentials.");
+        setError(message); 
       }
     } catch (error) {
-      console.error("Login error:", error);
-      setError("An error occurred during login.");
+       if (error.response && error.response.data) {
+        const message = error.response.data.message;
+        const status = error.response.data.status;
+        if (status === false) {
+          setError(message); 
+        }
+      } else {
+          setError("An unexpected error occurred."); // Generic error message for network or other issues
+      }
     }
   };
 

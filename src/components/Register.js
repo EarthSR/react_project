@@ -7,6 +7,7 @@ import {
   Container,
   Box,
   Alert,
+  Link
 } from "@mui/material";
 
 function Register() {
@@ -103,6 +104,17 @@ function Register() {
             onChange={(e) => setLastname(e.target.value)}
             required
           />
+
+          <Link
+            component="button"
+            variant="body2"
+            onClick={() => {
+              window.location.href = "/Login";
+            }}
+          >
+            IF you have already account, please click here
+          </Link>
+          
           <Button
             type="submit"
             variant="contained"
