@@ -56,7 +56,7 @@ const AdminDashboard = () => {
               </ListItemIcon>
               <ListItemText primary="Users" />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={() => window.location.href = '/Management'}>
               <ListItemIcon>
                 <GroupIcon />
               </ListItemIcon>

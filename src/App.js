@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import LoginAdmin from './componentsAdmin/LoginAdmin';
 import RegisterAdmin from './componentsAdmin/RegisterAdmin';
-import Management from './componentsAdmin/CustomerManagement'
+import Management from './componentsAdmin/EmployeeManagement'
 import AdminDashboard from './componentsAdmin/AdminDashboard'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
