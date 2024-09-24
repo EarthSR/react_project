@@ -95,7 +95,7 @@ const AdminDashboard = () => {
               onClick={() => {
                 localStorage.removeItem("token"); 
                 localStorage.clear(); 
-                window.location.href = "/login"; 
+                window.location.href = "/LoginAdmin"; 
               }}
             >
               <ListItemIcon>
