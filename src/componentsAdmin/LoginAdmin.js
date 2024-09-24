@@ -39,7 +39,7 @@ function LoginAdmin() {
 
       if (result && result.token) {
         localStorage.setItem("token", result.token); // Save token
-        window.location.href = "/Management"; 
+        window.location.href = "/admindashboard"; 
       } else {
         setError(message); 
       }

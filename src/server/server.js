@@ -463,7 +463,7 @@ app.post('/api/employee', async function (req, res) {
 
                 // Save data into the database
                 sql = `INSERT INTO employee (username, password, firstName, lastName, email, gender, positionID, isActive, loginAttempt)
-                       VALUES (?, ?, ?, ?, ?, ?, 0, 1, 0)`;
+                       VALUES (?, ?, ?, ?, ?, ?, 2, 1, 0)`;
                 let params = [username, password_hash, firstName, lastName, email, gender, positionID || 2, isActive !== undefined ? isActive : 1];
 
                 db.query(sql, params, (err, result) => {

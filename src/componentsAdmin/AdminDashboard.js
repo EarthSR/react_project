@@ -62,12 +62,6 @@ const AdminDashboard = () => {
               </ListItemIcon>
               <ListItemText primary="Employees" />
             </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItem>
           </List>
         </Box>
       </Drawer>

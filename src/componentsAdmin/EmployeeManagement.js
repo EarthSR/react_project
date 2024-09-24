@@ -235,7 +235,7 @@ function EmployeeManagement() {
                                     <TableCell>{employee.firstName}</TableCell>
                                     <TableCell>{employee.lastName}</TableCell>
                                     <TableCell>{employee.email}</TableCell>
-                                    <TableCell>{employee.gender}</TableCell>
+                                    <TableCell>{employee.gender === 0 ? 'ชาย' : 'หญิง'}</TableCell>
                                     <TableCell>
                                         <IconButton onClick={() => handleClickOpenEdit(employee)}>
                                             <EditIcon />
@@ -315,8 +315,9 @@ function EmployeeManagement() {
                             value={newEmployee.gender}
                             onChange={handleAddChange}
                         >
-                            <MenuItem value="ชาย">ชาย</MenuItem>
-                            <MenuItem value="หญิง">หญิง</MenuItem>
+                            <MenuItem value={0}>ชาย</MenuItem>
+                            <MenuItem value={1}>หญิง</MenuItem>
+
                         </TextField>
                     </DialogContent>
                     <DialogActions>
@@ -367,11 +368,11 @@ function EmployeeManagement() {
                             label="Gender"
                             fullWidth
                             select
-                            value={selectedEmployee?.gender || ''}
+                            value={selectedEmployee?.gender ?? ''}
                             onChange={handleEditChange}
                         >
-                            <MenuItem value="ชาย">ชาย</MenuItem>
-                            <MenuItem value="หญิง">หญิง</MenuItem>
+                            <MenuItem value={0}>ชาย</MenuItem>
+                            <MenuItem value={1}>หญิง</MenuItem>
                         </TextField>
                     </DialogContent>
                     <DialogActions>
