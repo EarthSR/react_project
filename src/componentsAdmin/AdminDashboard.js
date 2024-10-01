@@ -10,6 +10,11 @@ import {
   Typography,
   AppBar,
   CssBaseline,
+  Paper,
+  Card,
+  CardContent,
+  Grid,
+  Button,
 } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
@@ -44,7 +49,11 @@ const AdminDashboard = () => {
       {/* Top App Bar */}
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+        sx={{
+          width: `calc(100% - ${drawerWidth}px)`,
+          ml: `${drawerWidth}px`,
+          background: "#2E3B55",
+        }}
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
@@ -62,6 +71,8 @@ const AdminDashboard = () => {
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
             boxSizing: "border-box",
+            background: "#2E3B55",
+            color: "#fff",
           },
         }}
       >
@@ -70,13 +81,16 @@ const AdminDashboard = () => {
           <List>
             {/* Menu Items */}
             <ListItem button>
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: "#fff" }}>
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
-            <ListItem button>
-              <ListItemIcon>
+            <ListItem
+              button
+              onClick={() => (window.location.href = "/CustomerManagement")}
+            >
+              <ListItemIcon sx={{ color: "#fff" }}>
                 <PeopleIcon />
               </ListItemIcon>
               <ListItemText primary="Users" />
@@ -85,7 +99,7 @@ const AdminDashboard = () => {
               button
               onClick={() => (window.location.href = "/Management")}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: "#fff" }}>
                 <GroupIcon />
               </ListItemIcon>
               <ListItemText primary="Employees" />
@@ -93,12 +107,12 @@ const AdminDashboard = () => {
             <ListItem
               button
               onClick={() => {
-                localStorage.removeItem("token"); 
-                localStorage.clear(); 
-                window.location.href = "/LoginAdmin"; 
+                localStorage.removeItem("token");
+                localStorage.clear();
+                window.location.href = "/LoginAdmin";
               }}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: "#fff" }}>
                 <LogoutIcon />
               </ListItemIcon>
               <ListItemText primary="Logout" />
@@ -110,25 +124,81 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        sx={{
+          flexGrow: 1,
+          bgcolor: "#f5f5f5",
+          p: 3,
+          background: "#f5f5f5",
+        }}
       >
         <Toolbar />
         <Typography variant="h5" gutterBottom>
           User Growth Over Time
         </Typography>
-        {/* Graph */}
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart
-            data={data}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+
+        {/* สถิติการเติบโตของผู้ใช้งาน */}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ background: "#E3F2FD" }}>
+              <CardContent>
+                <Typography variant="h6">Total Users</Typography>
+                <Typography variant="h4" color="primary">
+                  450
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ background: "#E8F5E9" }}>
+              <CardContent>
+                <Typography variant="h6">New Users</Typography>
+                <Typography variant="h4" color="green">
+                  +50
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ background: "#FFEBEE" }}>
+              <CardContent>
+                <Typography variant="h6">Active Users</Typography>
+                <Typography variant="h4" color="error">
+                  300
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        {/* Graph Section */}
+        <Paper elevation={3} sx={{ mt: 4, p: 2 }}>
+          <Typography variant="h6" gutterBottom>
+            User Growth Over the Months
+          </Typography>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart
+              data={data}
+              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="users" stroke="#8884d8" />
+            </LineChart>
+          </ResponsiveContainer>
+        </Paper>
+
+        {/* Footer with a Button */}
+        <Box sx={{ textAlign: "center", mt: 4 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => alert("More Analytics Coming Soon!")}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="users" stroke="#8884d8" />
-          </LineChart>
-        </ResponsiveContainer>
+            View More Analytics
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

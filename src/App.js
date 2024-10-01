@@ -4,9 +4,9 @@ import React from 'react';
 import Home from './components/Home'; 
 import Register from './components/Register';
 import LoginAdmin from './componentsAdmin/LoginAdmin';
-import RegisterAdmin from './componentsAdmin/RegisterAdmin';
 import Management from './componentsAdmin/EmployeeManagement'
-import AdminDashboard from './componentsAdmin/AdminDashboard'; 
+import AdminDashboard from './componentsAdmin/AdminDashboard';
+import CustomerManagement from './componentsAdmin/CustomerManagement'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginAdmin />} />
           <Route path="/admindashboard" element={<AdminDashboard />} />
+          <Route path="/customermanagement" element={<CustomerManagement />} />
           <Route path="/loginadmin" element={<LoginAdmin />} />
           <Route path="/Management" element={<Management />} />
           <Route path='/login' element={<Login />} />

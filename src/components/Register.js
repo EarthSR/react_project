@@ -70,6 +70,7 @@ function Register() {
           <TextField
             fullWidth
             margin="normal"
+            name="username"
             label="Username"
             variant="outlined"
             value={username}
@@ -79,6 +80,7 @@ function Register() {
           <TextField
             fullWidth
             margin="normal"
+            name="password"
             label="Password"
             type="password"
             variant="outlined"
@@ -89,6 +91,7 @@ function Register() {
           <TextField
             fullWidth
             margin="normal"
+            name="firstName"
             label="First Name"
             variant="outlined"
             value={firstName}
@@ -98,6 +101,7 @@ function Register() {
           <TextField
             fullWidth
             margin="normal"
+            name="lastName"
             label="Last Name"
             variant="outlined"
             value={lastName}
@@ -116,6 +120,7 @@ function Register() {
           </Link>
           
           <Button
+            id="register-button"
             type="submit"
             variant="contained"
             color="primary"
